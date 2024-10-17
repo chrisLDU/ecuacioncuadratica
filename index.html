@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula General</title>
+    <script>
+        // Función que calcula las raíces de una ecuación cuadrática
+        function calcularRaices() {
+            // Pedir al usuario que ingrese los valores de a, b, y c
+            var a = parseInt(prompt("Introduce el valor de 'a':"));
+            var b = parseInt(prompt("Introduce el valor de 'b':"));
+            var c = parseInt(prompt("Introduce el valor de 'c':"));
+
+            // Validar que a no sea 0
+            if (a === 0) {
+                alert("El valor de 'a' no puede ser 0.");
+                console.log("El valor de 'a' no puede ser 0.");
+                return;
+            }
+
+            // Calcular el discriminante usando la formula  general
+            var discriminante = (b * b) - (4 * a * c);
+
+            // Verificar el discriminante y calcular las raíces
+            if (discriminante > 0) {
+                var raiz1 = Math.round((-b + Math.sqrt(discriminante)) / (2 * a));
+                var raiz2 = Math.round((-b - Math.sqrt(discriminante)) / (2 * a));
+                alert(`Raíces reales: x1 = ${raiz1}, x2 = ${raiz2}`);
+                console.log(`Raíces reales: x1 = ${raiz1}, x2 = ${raiz2}`);
+            } else if (discriminante === 0) {
+                var raiz = Math.round(-b / (2 * a));
+                alert(`Raíz única: x = ${raiz}`);
+                console.log(`Raíz única: x = ${raiz}`);
+            } else {
+                var parteReal = Math.round(-b / (2 * a));
+                var parteImaginaria = Math.round(Math.sqrt(-discriminante) / (2 * a));
+                alert(`Raíces complejas: x1 = ${parteReal} , x2 = ${parteReal} - ${parteImaginaria}i`);
+                console.log(`Raíces complejas: x1 = ${parteReal} + ${parteImaginaria}i, x2 = ${parteReal} - ${parteImaginaria}i`);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Raíz Cuadrática</h1>
+    <p>Haz clic en el botón para ingresar los valores y calcular las raíces:</p>
+    <button onclick="calcularRaices()">Calcular raíces</button>
+
+</body>
+
+</html>
